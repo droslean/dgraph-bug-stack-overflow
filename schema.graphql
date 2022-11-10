@@ -1,0 +1,20 @@
+type Organization  {
+	id: ID! 
+	name: String 
+	employees: [Person] @hasInverse(field:organization) 
+}
+
+type Job  {
+	id: ID! 
+	description: String 
+	title: String 
+}
+
+type Person  {
+	name: String! 
+	address: String 
+	job: Job 
+	id: ID 
+	organization: Organization @hasInverse(field:employees) 
+}
+
